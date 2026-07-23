@@ -1,6 +1,6 @@
 # Implementation Plan: TYNYS / TYNYS Mektep MVP
 
-Статус: **черновик для утверждения**
+Статус: **утверждён 24 июля 2026 года**
 Основание: `docs/spec.md`, утверждена 24 июля 2026 года.
 
 ## Overview
@@ -95,7 +95,7 @@ T12 + T13 + T14 ─> T15 Production release
 
 ### Phase 1: Reproducible foundation
 
-- [ ] Task 1: Bootstrap a minimal deployable Next.js shell.
+- [x] Task 1: Bootstrap a minimal deployable Next.js shell.
 - [ ] Task 2: Establish the TYNYS visual shell and responsive tokens.
 - [ ] Task 3: Add lint, unit, build and browser verification harness.
 

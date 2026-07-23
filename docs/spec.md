@@ -153,7 +153,9 @@ Product thesis:
 - Node.js 22 LTS или версия, поддерживаемая Vercel для Next.js 16.
 - Next.js 16.2.11, App Router.
 - React 19.2.8.
-- TypeScript 7.0.2, strict mode.
+- TypeScript 6.0.3, strict mode. TypeScript 7.0.2 несовместим с Next.js 16.2.11:
+  пакет больше не предоставляет entrypoint `typescript/lib/typescript.js`,
+  который требуется production build Next.js.
 - Tailwind CSS 4.3.3.
 - Zod — runtime-валидация внешних API.
 - Vitest 4.1.10 — unit/integration tests.
