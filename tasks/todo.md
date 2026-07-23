@@ -118,16 +118,16 @@ snapshot для воспроизводимого demo.
 
 **Acceptance criteria:**
 
-- [ ] Contract содержит time, temperature, apparent temperature, UV, PM2.5,
+- [x] Contract содержит time, temperature, apparent temperature, UV, PM2.5,
   US AQI, source и fetched timestamp.
-- [ ] Valid fixtures принимаются, malformed/partial payloads отклоняются.
-- [ ] Snapshot имеет дату, provenance и минимум 48 последовательных часов.
+- [x] Valid fixtures принимаются, malformed/partial payloads отклоняются.
+- [x] Snapshot имеет дату, provenance и минимум 48 последовательных часов.
 
 **Verification:**
 
-- [ ] `npm run test -- tests/environment-schema.test.ts`
-- [ ] `npm run typecheck`
-- [ ] Manual check: snapshot явно помечен как historical demo data.
+- [x] `npm run test -- tests/environment-schema.test.ts`
+- [x] `npm run typecheck`
+- [x] Manual check: snapshot явно помечен как historical demo data.
 
 **Dependencies:** Task 3.
 
