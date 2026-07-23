@@ -119,7 +119,7 @@ T12 + T13 + T14 ─> T15 Production release
 
 ### Phase 3: Product foundations
 
-- [ ] Task 7: Add typed Kazakh/Russian localization infrastructure.
+- [x] Task 7: Add typed Kazakh/Russian localization infrastructure.
 - [ ] Task 8: Ship the bilingual evidence-first landing slice.
 - [ ] Task 9: Build and test the deterministic Mektep optimizer.
 
