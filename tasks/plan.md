@@ -97,13 +97,13 @@ T12 + T13 + T14 ─> T15 Production release
 
 - [x] Task 1: Bootstrap a minimal deployable Next.js shell.
 - [x] Task 2: Establish the TYNYS visual shell and responsive tokens.
-- [ ] Task 3: Add lint, unit, build and browser verification harness.
+- [x] Task 3: Add lint, unit, build and browser verification harness.
 
 ### Checkpoint A: Foundation
 
-- [ ] `npm run verify` проходит в чистом checkout.
-- [ ] Минимальная страница запускается и production build собирается.
-- [ ] Unit и browser smoke tests выполняются локально.
+- [x] `npm run verify` проходит в чистом checkout.
+- [x] Минимальная страница запускается и production build собирается.
+- [x] Unit и browser smoke tests выполняются локально.
 
 ### Phase 2: Trusted climate core
 
