@@ -179,15 +179,15 @@ Weather/Air Quality data, нормализует их, кеширует резу
 
 **Acceptance criteria:**
 
-- [ ] Score детерминирован, ограничен 0–100 и показывает вклад heat/UV/AQI.
-- [ ] Ухудшение одного input при фиксированных остальных не уменьшает score.
-- [ ] Методология объясняет веса, пороги, единицы, ограничения и source links.
+- [x] Score детерминирован, ограничен 0–100 и показывает вклад heat/UV/AQI.
+- [x] Ухудшение одного input при фиксированных остальных не уменьшает score.
+- [x] Методология объясняет веса, пороги, единицы, ограничения и source links.
 
 **Verification:**
 
-- [ ] `npm run test:coverage -- tests/exposure.test.ts`
-- [ ] Branch coverage `lib/tynys/exposure` ≥ 90%.
-- [ ] Manual language review: только «индекс», «модель» и «поддержка решения».
+- [x] `npm run test:coverage -- tests/exposure.test.ts`
+- [x] Branch coverage `lib/tynys/exposure` ≥ 90%.
+- [x] Manual language review: только «индекс», «модель» и «поддержка решения».
 
 **Dependencies:** Task 4.
 
@@ -202,10 +202,10 @@ Weather/Air Quality data, нормализует их, кеширует резу
 
 ## Checkpoint B
 
-- [ ] `npm run verify`
-- [ ] Live and snapshot contracts match.
-- [ ] Forced provider failure still yields usable 48-hour data.
-- [ ] Exposure coverage and monotonicity requirements pass.
+- [x] `npm run verify`
+- [x] Live and snapshot contracts match.
+- [x] Forced provider failure still yields usable 48-hour data.
+- [x] Exposure coverage and monotonicity requirements pass.
 
 ## Task 7: Add typed Kazakh/Russian localization
 
