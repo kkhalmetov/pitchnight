@@ -1,11 +1,15 @@
 import Link from "next/link";
 
-export function BrandMark() {
+interface BrandMarkProps {
+  ariaLabel: string;
+}
+
+export function BrandMark({ ariaLabel }: BrandMarkProps) {
   return (
     <Link
       className="brand-mark"
       href="/"
-      aria-label="TYNYS Mektep — басты бет"
+      aria-label={ariaLabel}
     >
       <svg
         className="brand-mark__symbol"

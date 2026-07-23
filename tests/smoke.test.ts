@@ -3,14 +3,19 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
 import { AppShell } from "@/components/AppShell";
+import { I18nProvider } from "@/lib/tynys/i18n/provider";
 
 describe("AppShell", () => {
   it("renders one semantic shell and the complete risk scale", () => {
     const html = renderToStaticMarkup(
       createElement(
-        AppShell,
+        I18nProvider,
         null,
-        createElement("h1", null, "Test page"),
+        createElement(
+          AppShell,
+          null,
+          createElement("h1", null, "Test page"),
+        ),
       ),
     );
 
