@@ -148,16 +148,16 @@ Weather/Air Quality data, нормализует их, кеширует резу
 
 **Acceptance criteria:**
 
-- [ ] Live success возвращает 48 часов в contract Task 4 со статусом `live`.
-- [ ] Timeout/malformed provider response возвращает тот же contract со статусом
+- [x] Live success возвращает 48 часов в contract Task 4 со статусом `live`.
+- [x] Timeout/malformed provider response возвращает тот же contract со статусом
   `snapshot` и объясняющим warning.
-- [ ] Endpoint не принимает произвольный URL и не раскрывает внутренние ошибки.
+- [x] Endpoint не принимает произвольный URL и не раскрывает внутренние ошибки.
 
 **Verification:**
 
-- [ ] `npm run test -- tests/environment-route.test.ts`
-- [ ] `npm run typecheck`
-- [ ] Manual check: live request и принудительный fallback имеют HTTP 200 и
+- [x] `npm run test -- tests/environment-route.test.ts`
+- [x] `npm run typecheck`
+- [x] Manual check: live request и принудительный fallback имеют HTTP 200 и
   различимые source labels.
 
 **Dependencies:** Task 4.

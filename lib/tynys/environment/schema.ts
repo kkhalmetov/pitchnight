@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import type {
+  EnvironmentApiResponse,
   EnvironmentHour,
   EnvironmentSnapshot,
 } from "@/lib/tynys/environment/types";
@@ -23,6 +24,19 @@ function hasParallelHourlyArrays(
 ): boolean {
   const lengths = Object.values(hourly).map((values) => values.length);
   return lengths.every((length) => length > 0 && length === lengths[0]);
+}
+
+function hasConsecutiveHours(hours: readonly { time: string }[]): boolean {
+  return hours.every((hour, index) => {
+    if (index === 0) {
+      return true;
+    }
+
+    return (
+      Date.parse(hour.time) - Date.parse(hours[index - 1].time) ===
+      60 * 60 * 1000
+    );
+  });
 }
 
 export const WeatherProviderResponseSchema = z.object({
@@ -86,17 +100,39 @@ export const EnvironmentSnapshotSchema = z
     }),
     hours: z.array(EnvironmentHourSchema).min(48),
   })
-  .superRefine((snapshot, context) => {
-    for (let index = 1; index < snapshot.hours.length; index += 1) {
-      const previous = Date.parse(snapshot.hours[index - 1].time);
-      const current = Date.parse(snapshot.hours[index].time);
-
-      if (current - previous !== 60 * 60 * 1000) {
-        context.addIssue({
-          code: "custom",
-          message: "Snapshot hours must be consecutive",
-          path: ["hours", index, "time"],
-        });
-      }
-    }
+  .refine((snapshot) => hasConsecutiveHours(snapshot.hours), {
+    message: "Snapshot hours must be consecutive",
+    path: ["hours"],
   }) satisfies z.ZodType<EnvironmentSnapshot>;
+
+const EnvironmentWarningSchema = z.strictObject({
+  code: z.enum(["LIVE_TIMEOUT", "LIVE_UNAVAILABLE", "LIVE_INVALID"]),
+  message: z.string().min(1).max(240),
+});
+
+const environmentResponseShape = {
+  fetchedAt: normalizedTimeSchema,
+  hours: z.array(EnvironmentHourSchema).length(48),
+};
+
+export const EnvironmentApiResponseSchema = z
+  .discriminatedUnion("status", [
+    z.strictObject({
+      ...environmentResponseShape,
+      status: z.literal("live"),
+      source: z.literal("open-meteo-live"),
+      snapshotDate: z.null(),
+      warning: z.null(),
+    }),
+    z.strictObject({
+      ...environmentResponseShape,
+      status: z.literal("snapshot"),
+      source: z.literal("open-meteo-historical-snapshot"),
+      snapshotDate: z.iso.date(),
+      warning: EnvironmentWarningSchema,
+    }),
+  ])
+  .refine((response) => hasConsecutiveHours(response.hours), {
+    message: "Environment hours must be consecutive",
+    path: ["hours"],
+  }) satisfies z.ZodType<EnvironmentApiResponse>;

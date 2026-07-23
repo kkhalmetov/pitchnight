@@ -108,7 +108,7 @@ T12 + T13 + T14 ─> T15 Production release
 ### Phase 2: Trusted climate core
 
 - [x] Task 4: Define and test the normalized environment contract and snapshot.
-- [ ] Task 5: Deliver the live `/api/environment` path with automatic fallback.
+- [x] Task 5: Deliver the live `/api/environment` path with automatic fallback.
 - [ ] Task 6: Build the transparent exposure engine and methodology.
 
 ### Checkpoint B: Data and model
